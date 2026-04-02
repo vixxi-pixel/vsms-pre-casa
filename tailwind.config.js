@@ -4,6 +4,9 @@ module.exports = {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
   	extend: {
+      fontFamily: {
+        nunito: ['var(--font-nunito)', 'Nunito', 'sans-serif'],
+      },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -50,39 +53,53 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-  			sidebar: {
-  				DEFAULT: 'hsl(var(--sidebar-background))',
-  				foreground: 'hsl(var(--sidebar-foreground))',
-  				primary: 'hsl(var(--sidebar-primary))',
-  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-  				accent: 'hsl(var(--sidebar-accent))',
-  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-  				border: 'hsl(var(--sidebar-border))',
-  				ring: 'hsl(var(--sidebar-ring))'
-  			}
   		},
   		keyframes: {
   			'accordion-down': {
-  				from: {
-  					height: '0'
-  				},
-  				to: {
-  					height: 'var(--radix-accordion-content-height)'
-  				}
+  				from: { height: '0' },
+  				to: { height: 'var(--radix-accordion-content-height)' }
   			},
   			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
-  			}
+  				from: { height: 'var(--radix-accordion-content-height)' },
+  				to: { height: '0' }
+  			},
+        bounce: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-5deg)' },
+          '50%': { transform: 'rotate(5deg)' },
+        },
+        pop: {
+          '0%': { transform: 'scale(0.8)', opacity: '0' },
+          '70%': { transform: 'scale(1.15)' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        celebrate: {
+          '0%': { transform: 'scale(1)' },
+          '25%': { transform: 'scale(1.3) rotate(-5deg)' },
+          '50%': { transform: 'scale(1.3) rotate(5deg)' },
+          '75%': { transform: 'scale(1.2)' },
+          '100%': { transform: 'scale(1)' },
+        }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
-  		}
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+        'bounce-slow': 'bounce 1.5s infinite',
+        wiggle: 'wiggle 0.5s ease-in-out',
+        pop: 'pop 0.3s ease-out forwards',
+        celebrate: 'celebrate 0.6s ease-in-out',
+  		},
+      safelist: [
+        'bg-red-400', 'bg-blue-400', 'bg-green-500', 'bg-yellow-400',
+        'bg-orange-400', 'bg-purple-500', 'bg-pink-400',
+        'text-red-400', 'text-blue-400', 'text-green-500', 'text-yellow-400',
+        'text-orange-400', 'text-purple-500', 'text-pink-400',
+        'border-red-400', 'border-blue-400', 'border-green-500',
+        'border-yellow-400', 'border-orange-400', 'border-purple-500', 'border-pink-400',
+      ]
   	}
   },
   plugins: [require("tailwindcss-animate")],
