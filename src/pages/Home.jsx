@@ -61,7 +61,7 @@ export default function Home() {
                 <motion.span animate={{ rotate: [5, -5, 5] }} transition={{ repeat: Infinity, duration: 2, delay: 0.4 }}>🐰</motion.span>
               </div>
               <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-pink-500 to-yellow-500 leading-tight">
-                Happy Easter!
+                VSMS - PRE CASA
               </h1>
               <p className="text-xl font-bold text-muted-foreground mt-2">
                 Pick a game to play 👇
