@@ -4,6 +4,7 @@ import AlphabetGame from "../components/games/AlphabetGame";
 import ColorsShapesGame from "../components/games/ColorsShapesGame";
 import NumbersGame from "../components/games/NumbersGame";
 import EasterEggHunt from "../components/games/EasterEggHunt";
+import EggTapGame from "../components/games/EggTapGame";
 
 const topics = [
   { id: "alphabet", emoji: "🔤", label: "Letters", color: "from-violet-400 to-purple-500", shadow: "shadow-purple-200" },
@@ -90,6 +91,28 @@ export default function Home() {
               >→</motion.span>
             </motion.button>
 
+            {/* Egg Tap Game */}
+            <motion.button
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.25 }}
+              whileHover={{ scale: 1.04, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveTopic("eggtap")}
+              className="bg-gradient-to-br from-yellow-400 to-orange-400 shadow-xl shadow-yellow-200 rounded-3xl p-6 flex items-center gap-5 text-white font-black text-2xl cursor-pointer border-0 transition-all w-full max-w-md mb-6"
+            >
+              <span className="text-6xl">🥚</span>
+              <div className="text-left">
+                <div className="text-3xl">Tap the Eggs!</div>
+                <div className="text-base font-bold opacity-90">Tap as many as you can! ⏱</div>
+              </div>
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1 }}
+                className="ml-auto text-4xl"
+              >→</motion.span>
+            </motion.button>
+
             {/* Other Topic Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-2xl">
               {topics.map((topic, i) => (
@@ -130,6 +153,7 @@ export default function Home() {
             {activeTopic === "colors" && <ColorsShapesGame onBack={() => setActiveTopic(null)} />}
             {activeTopic === "numbers" && <NumbersGame onBack={() => setActiveTopic(null)} />}
             {activeTopic === "easter" && <EasterEggHunt onBack={() => setActiveTopic(null)} />}
+            {activeTopic === "eggtap" && <EggTapGame onBack={() => setActiveTopic(null)} />}
           </motion.div>
         )}
       </AnimatePresence>
